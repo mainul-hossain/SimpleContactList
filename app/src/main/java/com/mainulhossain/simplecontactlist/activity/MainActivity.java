@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity implements OnLoadMoreListene
         myName = (TextView) findViewById(R.id.myName);
         myNumber = (TextView) findViewById(R.id.myNumber);
         //Set my details
-        myName.setText(getString(R.string.my_name));
-        myNumber.setText(getString(R.string.my_number));
+        myName.setText(R.string.my_name);
+        myNumber.setText(R.string.my_number);
 
         recyclerView = (RecyclerView) findViewById(R.id.contactList);
         recyclerView.setHasFixedSize(true);
