@@ -35,7 +35,7 @@ public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     @Override
     public int getItemViewType(int position) {
 
-        if (mWithFooter && isPositionFooter(position))
+        if (isPositionFooter(position))
             return LOAD_MORE_VIEW;
         return ITEM_VIEW;
     }
@@ -66,7 +66,6 @@ public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 ViewHolder viewHolder = (ViewHolder) holder;
                 Contact mContact = mList.get(position);
 
-
                 viewHolder.tvCount.setText(String.valueOf(mContact.getId()));
                 viewHolder.tvName.setText(mContact.getName());
                 viewHolder.tvNumber.setText(mContact.getNumber());
@@ -86,6 +85,11 @@ public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                     }
                 });
 
+                //It will trigger when no contacts are available
+                if (mWithFooter)
+                {
+                    loadMoreHolder.loadMoreBtn.setText(R.string.empty_msg);
+                }
                 break;
         }
     }
@@ -93,18 +97,12 @@ public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     @Override
     public int getItemCount() {
 
-        int itemCount = mList.size();
-
-        if (mWithFooter)
-        {
-            itemCount++;
-        }
-        return itemCount;
+        return mList.size() + 1;
     }
 
     public boolean isPositionFooter(int position)
     {
-        return position == getItemCount() - 1 && mWithFooter;
+        return position == getItemCount() - 1;
     }
 
     public void setWithFooter(boolean value)

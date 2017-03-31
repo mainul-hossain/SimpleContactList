@@ -101,7 +101,6 @@ public class MainActivity extends AppCompatActivity implements OnLoadMoreListene
         // Create and instance of ContactAdapter and initialized
         contactAdapter = new ContactAdapter(limitedList);
         contactAdapter.setOnLoadMoreListener(this);// Set Listener
-        contactAdapter.setWithFooter(true);// Set Footer visible
         recyclerView.setAdapter(contactAdapter); // Set adapter to RecyclerView
     }
 
@@ -140,8 +139,9 @@ public class MainActivity extends AppCompatActivity implements OnLoadMoreListene
             {
                 limitedList.add(mContactList.get(i));
             }
-            contactAdapter.setWithFooter(false);
-            Toast.makeText(this, "No more contacts available.", Toast.LENGTH_SHORT).show();
+            //Pass Boolean value to this method
+            contactAdapter.setWithFooter(true);
+            Toast.makeText(this, R.string.empty_msg, Toast.LENGTH_SHORT).show();
         }
         else
         {

@@ -3,4 +3,5 @@
     <string name="my_name">Mainul Hossain</string>
     <string name="my_number">"+8801679043541"</string>
     <string name="load_more">Load More</string>
+    <string name="empty_msg">No more results to show.</string>
 </resources>
