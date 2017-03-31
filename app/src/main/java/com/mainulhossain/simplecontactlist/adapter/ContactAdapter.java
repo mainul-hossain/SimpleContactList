@@ -66,6 +66,7 @@ public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 ViewHolder viewHolder = (ViewHolder) holder;
                 Contact mContact = mList.get(position);
 
+
                 viewHolder.tvCount.setText(String.valueOf(mContact.getId()));
                 viewHolder.tvName.setText(mContact.getName());
                 viewHolder.tvNumber.setText(mContact.getNumber());
